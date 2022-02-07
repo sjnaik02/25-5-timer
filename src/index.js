@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom'
 import Display from "./Components/Display";
+import Timer from "./Components/Timer";
 import './index.css'
 
 class App extends React.Component {
@@ -44,7 +45,7 @@ class App extends React.Component {
                 <h1> 25/5 Timer </h1>
                 <Display label='session' length={this.state.sessionLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
                 <Display label='break' length={this.state.breakLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
-
+                <Timer /> 
             </div>
         );
     }
