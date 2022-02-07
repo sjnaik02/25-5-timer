@@ -45,7 +45,7 @@ class App extends React.Component {
                 <h1> 25/5 Timer </h1>
                 <Display label='session' length={this.state.sessionLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
                 <Display label='break' length={this.state.breakLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
-                <Timer /> 
+                <Timer sessionLen={this.state.sessionLength} breakLen={this.state.breakLength} /> 
             </div>
         );
     }
