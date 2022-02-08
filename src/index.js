@@ -29,11 +29,11 @@ class App extends React.Component {
     }
 
     decrementLength(type){
-        if (type === 'session' && this.state.sessionLength > 0) {
+        if (type === 'session' && this.state.sessionLength > 1) {
             this.setState((state) => ({
                 sessionLength: state.sessionLength - 1,
             }));
-        } else if (type === 'break' && this.state.breakLength > 0) {
+        } else if (type === 'break' && this.state.breakLength > 1) {
             this.setState((state) => ({
                 breakLength: state.breakLength - 1
             }));
