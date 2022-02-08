@@ -4,15 +4,15 @@ function Timer({ sessionLen, breakLen }) {
   const [length, setLength] = useState(sessionLen);
   const [isPaused, setPaused] = useState(true);
   const [isBreak, setBreak] = useState(false);
-  let intervalRef = useRef();
+  let intervalRef = useRef(null);
 
   const decrementTime = () => {
     setLength((prev) => prev - 1);
   };
 
   useEffect(() => {
-    if(length=== 0){
-      console.log('beep');
+    if (length === 0) {
+      console.log("beep");
       if (isBreak) {
         setLength(sessionLen);
         setBreak((prev) => !prev);
@@ -33,11 +33,24 @@ function Timer({ sessionLen, breakLen }) {
     }
   };
 
+  const triggerReset = () => {
+    setLength(sessionLen);
+    clearInterval(intervalRef.current);
+    setPaused(true);
+  };
+
   return (
     <>
-      <h2> {isBreak ? "Break" : "Session"} </h2>
-      <h3>{length}</h3>
-      <button onClick={() => playPause()}> Play / Pause </button>
+      <h2 id="timer-label"> {isBreak ? "Break" : "Session"} </h2>
+      <h3 id="time-left">{length}</h3>
+      <button id="time-left" onClick={() => playPause()}>
+        {" "}
+        Play / Pause{" "}
+      </button>
+      <button id="reset" onClick={() => triggerReset()}>
+        {" "}
+        Reset{" "}
+      </button>
     </>
   );
 }
