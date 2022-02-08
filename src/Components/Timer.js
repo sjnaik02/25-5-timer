@@ -14,7 +14,7 @@ function Timer({ sessionLen, breakLen, reset }) {
   useEffect(() => {
     if (length === 0) {
       console.log("beep");
-      audioElement.current.currentTine = 0;
+      audioElement.current.currentTime = 0;
       audioElement.current.play();
       if (isBreak) {
         setLength(sessionLen*60);
@@ -41,8 +41,8 @@ function Timer({ sessionLen, breakLen, reset }) {
   };
   
   const triggerReset = () => {
-    audioElement.current.currentTine = 0;
     audioElement.current.pause();
+    audioElement.current.currentTime = 0;
     setLength(sessionLen*60);
     clearInterval(intervalRef.current);
     setPaused(true);
@@ -53,7 +53,7 @@ function Timer({ sessionLen, breakLen, reset }) {
     <>
       <h2 id="timer-label"> {isBreak ? "Break" : "Session"} </h2>
       <h3 id="time-left">{String(Math.floor(length / 60)).padStart(2,'0')} : {String(length % 60).padStart(2, '0')} </h3>
-      <button id="time-left" onClick={() => playPause()}>
+      <button id="start-stop" onClick={() => playPause()}>
         Play / Pause
       </button>
       <button id="reset" onClick={() => triggerReset()}>
