@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function Timer({ sessionLen, breakLen }) {
+function Timer({ sessionLen, breakLen, reset }) {
   const [length, setLength] = useState(sessionLen);
   const [isPaused, setPaused] = useState(true);
   const [isBreak, setBreak] = useState(false);
@@ -37,6 +37,7 @@ function Timer({ sessionLen, breakLen }) {
     setLength(sessionLen);
     clearInterval(intervalRef.current);
     setPaused(true);
+    reset();
   };
 
   return (
@@ -44,12 +45,10 @@ function Timer({ sessionLen, breakLen }) {
       <h2 id="timer-label"> {isBreak ? "Break" : "Session"} </h2>
       <h3 id="time-left">{length}</h3>
       <button id="time-left" onClick={() => playPause()}>
-        {" "}
-        Play / Pause{" "}
+        Play / Pause
       </button>
       <button id="reset" onClick={() => triggerReset()}>
-        {" "}
-        Reset{" "}
+        Reset
       </button>
     </>
   );

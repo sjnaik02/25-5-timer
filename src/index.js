@@ -13,6 +13,7 @@ class App extends React.Component {
         }
         this.incrementLength = this.incrementLength.bind(this);
         this.decrementLength = this.decrementLength.bind(this);
+        this.reset = this.reset.bind(this);
     }
 
     incrementLength(type) {
@@ -39,13 +40,21 @@ class App extends React.Component {
         }
     }
 
+    reset(){
+        console.log('bloop');
+        this.setState(() => ({
+            'sessionLength': 25,
+            'breakLength': 5,
+        })); 
+    }
+
     render() {
         return (
             <div id='wrapper'>
                 <h1> 25/5 Timer </h1>
                 <Display label='session' length={this.state.sessionLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
                 <Display label='break' length={this.state.breakLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
-                <Timer sessionLen={this.state.sessionLength} breakLen={this.state.breakLength} /> 
+                <Timer sessionLen={this.state.sessionLength} breakLen={this.state.breakLength} reset={this.reset}/> 
             </div>
         );
     }
