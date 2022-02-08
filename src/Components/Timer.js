@@ -46,14 +46,15 @@ function Timer({ sessionLen, breakLen, reset }) {
     setLength(sessionLen*60);
     clearInterval(intervalRef.current);
     setPaused(true);
+    setBreak(false);
     reset();
   };
 
   return (
     <>
       <h2 id="timer-label"> {isBreak ? "Break" : "Session"} </h2>
-      <h3 id="time-left">{String(Math.floor(length / 60)).padStart(2,'0')} : {String(length % 60).padStart(2, '0')} </h3>
-      <button id="start-stop" onClick={() => playPause()}>
+      <h3 id="time-left">{String(Math.floor(length / 60)).padStart(2,'0')}:{String(length % 60).padStart(2, '0')}</h3>
+      <button id="start_stop" onClick={() => playPause()}>
         Play / Pause
       </button>
       <button id="reset" onClick={() => triggerReset()}>
