@@ -55,12 +55,14 @@ function Timer({ sessionLen, breakLen, reset }) {
     <>
       <h2 className=" text-center text-lg " id="timer-label"> {isBreak ? "break" : "session"} </h2>
       <h3 className=" text-center text-4xl " id="time-left">{String(Math.floor(length / 60)).padStart(2,'0')}:{String(length % 60).padStart(2, '0')}</h3>
-      <button className="border-2 rounded-md p-2 m-4 border-emerald-500 hover:bg-emerald-500 active:bg-emerald-500 transition-colors" id="start_stop" onClick={() => playPause()}>
-        Play / Pause
-      </button>
-      <button className="border-2 rounded-md p-2 m-4 border-emerald-500 hover:bg-emerald-500 active:bg-emerald-500 transition-colors" id="reset" onClick={() => triggerReset()}>
-        Reset
-      </button>
+      <div className="flex justify-center">
+        <button className="border-2 rounded-md p-2 m-4 border-emerald-500 hover:bg-emerald-500 active:bg-emerald-500 transition-colors" id="start_stop" onClick={() => playPause()}>
+          Play / Pause
+        </button>
+        <button className="border-2 rounded-md p-2 m-4 border-emerald-500 hover:bg-emerald-500 active:bg-emerald-500 transition-colors" id="reset" onClick={() => triggerReset()}>
+          Reset
+        </button>
+      </div>
       <audio
         src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
         id="beep"

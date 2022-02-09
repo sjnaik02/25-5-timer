@@ -51,9 +51,9 @@ class App extends React.Component {
     render() {
         return (
             <div id='wrapper' className="w-auto h-auto relative rounded-md p-4 font-mono bg-slate-600 text-white shadow-lg">
-                <h1 className="text-center text-xl underline m-2"> 25/5 Timer </h1>
+                <h1 className="text-center text-xl underline m-2"> 25/5 timer </h1>
                 <Timer sessionLen={this.state.sessionLength} breakLen={this.state.breakLength} reset={this.reset}/> 
-                <div className="w-full flex flex-row ">
+                <div className="sm:w-full sm:flex sm:flex-row ">
                     <Display label='session' length={this.state.sessionLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
                     <Display label='break' length={this.state.breakLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
                 </div>
