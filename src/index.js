@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom'
 import Display from "./Components/Display";
 import Timer from "./Components/Timer";
+import Info from "./Components/Info"
 import './index.css'
 
 class App extends React.Component {
@@ -50,13 +51,16 @@ class App extends React.Component {
 
     render() {
         return (
+            <div className="flex flex-col font-mono">
             <div id='wrapper' className="w-auto h-auto relative rounded-md p-4 font-mono bg-slate-600 text-white shadow-lg">
                 <h1 className="text-center text-xl underline m-2"> 25/5 timer </h1>
-                <Timer sessionLen={this.state.sessionLength} breakLen={this.state.breakLength} reset={this.reset}/> 
+                <Timer sessionLen={this.state.sessionLength} breakLen={this.state.breakLength} reset={this.reset} />
                 <div className="sm:w-full sm:flex sm:flex-row ">
-                    <Display label='session' length={this.state.sessionLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
-                    <Display label='break' length={this.state.breakLength} incrementor={this.incrementLength} decrementor={this.decrementLength}/>
+                    <Display label='session' length={this.state.sessionLength} incrementor={this.incrementLength} decrementor={this.decrementLength} />
+                    <Display label='break' length={this.state.breakLength} incrementor={this.incrementLength} decrementor={this.decrementLength} />
                 </div>
+            </div>
+            <Info />
             </div>
         );
     }
